@@ -8,7 +8,7 @@ How to get the code running.
 2) Install MongoDB if does not exist.  
 `sudo apt-get install mongodb`
 
-3) Configure MongoDB connection. Change file task/settings.py, replace this parameters if need:
+3) Configure MongoDB connection. Change file task/settings.py, replace this parameters if need:  
 `_MONGODB_HOST = 'localhost'`  
 `_MONGODB_PORT = 27017`  
 `_MONGODB_USER = ''`  
