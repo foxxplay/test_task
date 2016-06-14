@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload page</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <style>
+        input[type=file].form-control {
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron col-lg-6 col-lg-offset-3">
+                <h1 class="text-center">Upload file</h1>
+                {% if messages %}
+                    {% for message in messages %}
+                    <p class="alert
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}alert-danger{% endif %}
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}alert-success{% endif %}">
+                        {{ message }}
+                    </p>
+                    {% endfor %}
+                {% endif %}
+                <form class="form-inline" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="excel_file" class="form-control">
+                    <input type="submit" class="btn btn-lg btn-primary" role="button" value="Upload"/>
+                </form>
+                <em>Only *.xlsx files allowed.</em>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
